@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Rendering.PostProcessing;
 using Cinemachine;
+using UnityEngine.InputSystem;
 
 public class KartController : MonoBehaviour
 {
@@ -46,6 +47,26 @@ public class KartController : MonoBehaviour
     public Transform flashParticles;
     public Color[] turboColors;
 
+    //Input System!
+    KartControl controls;
+    float move;
+    bool go = false;
+    bool drift = false;
+
+    private void Awake()
+    {
+        controls = new KartControl();
+
+        controls.Kart.Drive.performed += ctx => go = true;
+        controls.Kart.Drive.canceled += ctx => go = false;
+
+        controls.Kart.Turn.performed += ctx => move = ctx.ReadValue<float>();
+        controls.Kart.Turn.canceled += ctx => move = 0f;
+
+        controls.Kart.Drift.performed += ctx => drift = true;
+        controls.Kart.Drift.canceled += ctx => drift = false;
+    }
+
     void Start()
     {
         postVolume = Camera.main.GetComponent<PostProcessVolume>();
@@ -79,22 +100,38 @@ public class KartController : MonoBehaviour
         transform.position = sphere.transform.position - new Vector3(0, 0.4f, 0);
 
         //Accelerate
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButton("Fire1") || go)
             speed = acceleration;
 
         //Steer
-        if (Input.GetAxis("Horizontal") != 0)
+        if ((Input.GetAxis("Horizontal") != 0) || (move != 0f))
         {
             int dir = Input.GetAxis("Horizontal") > 0 ? 1 : -1;
+            int controller_dir = move > 0 ? 1 : -1;
+            int combo = dir + controller_dir;
+            if (combo > 1)
+            {
+                combo = 1;
+            }
+            if (combo < -1)
+            {
+                combo = -1;
+            }
             float amount = Mathf.Abs((Input.GetAxis("Horizontal")));
+            float controller_amount = Mathf.Abs(move);
+            float amount_final = amount + controller_amount;
+            /*Debug.Log(amount);
+            Debug.Log(controller_amount);
+            Debug.Log(amount_final);*/
             Steer(dir, amount);
         }
 
         //Drift
-        if (Input.GetButtonDown("Jump") && !drifting && Input.GetAxis("Horizontal") != 0)
+        if ((Input.GetButtonDown("Jump") && !drifting && Input.GetAxis("Horizontal") != 0) || (drift && !drifting && move != 0))
         {
             drifting = true;
             driftDirection = Input.GetAxis("Horizontal") > 0 ? 1 : -1;
+            driftDirection = move > 0 ? 1 : -1;
 
             foreach (ParticleSystem p in primaryParticles)
             {
@@ -117,7 +154,7 @@ public class KartController : MonoBehaviour
             ColorDrift();
         }
 
-        if (Input.GetButtonUp("Jump") && drifting)
+        if (Input.GetButtonUp("Jump") && drifting || (!drift && drifting))
         {
             Boost();
         }
@@ -269,6 +306,16 @@ public class KartController : MonoBehaviour
     void ChromaticAmount(float x)
     {
         postProfile.GetSetting<ChromaticAberration>().intensity.value = x;
+    }
+
+    private void OnEnable()
+    {
+        controls.Kart.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.Kart.Disable();
     }
 
     //private void OnDrawGizmos()
