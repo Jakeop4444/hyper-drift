@@ -723,7 +723,7 @@ PrefabInstance:
     - target: {fileID: 3168256146683966532, guid: 485954d4b17d3a84c998f0542b608726,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000014194506
+      value: -0.0000000014194509
       objectReference: {fileID: 0}
     - target: {fileID: 3168256146683966532, guid: 485954d4b17d3a84c998f0542b608726,
         type: 3}
@@ -2425,7 +2425,7 @@ PrefabInstance:
     - target: {fileID: 497945420178114971, guid: 751741bcda479b44197c7440ee868510,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000014194506
+      value: -0.0000000014194509
       objectReference: {fileID: 0}
     - target: {fileID: 497945420178114971, guid: 751741bcda479b44197c7440ee868510,
         type: 3}
@@ -6739,6 +6739,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1775028312}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1089562173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1089562172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12397f681ae2ad341a4207ef6a6c5db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!64 &1089562174
 MeshCollider:
   m_ObjectHideFlags: 0

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.2393322, g: 0.375362, b: 0.4459203, a: 1}
+  m_IndirectSpecularColor: {r: 0.23933244, g: 0.37536246, b: 0.445921, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4490,17 +4490,17 @@ PrefabInstance:
     - target: {fileID: 497945420178114971, guid: 751741bcda479b44197c7440ee868510,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.07591301
+      value: 0.07591302
       objectReference: {fileID: 0}
     - target: {fileID: 497945420178114971, guid: 751741bcda479b44197c7440ee868510,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000028124791
+      value: 0.000000019563553
       objectReference: {fileID: 0}
     - target: {fileID: 497945420178114971, guid: 751741bcda479b44197c7440ee868510,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000021733302
+      value: -0.0000000015215402
       objectReference: {fileID: 0}
     - target: {fileID: 497945420178114971, guid: 751741bcda479b44197c7440ee868510,
         type: 3}
@@ -4608,6 +4608,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 057c5ef3a0f98414482a5dbfe4c70eef, type: 3}
+--- !u!1 &3095995567351922019 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3095995567164244041, guid: 057c5ef3a0f98414482a5dbfe4c70eef,
+    type: 3}
+  m_PrefabInstance: {fileID: 3095995567351922018}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3095995567351922020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3095995567351922019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12397f681ae2ad341a4207ef6a6c5db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3168256146572220720
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4638,17 +4656,17 @@ PrefabInstance:
     - target: {fileID: 3168256146683966532, guid: 485954d4b17d3a84c998f0542b608726,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.07591301
+      value: 0.07591302
       objectReference: {fileID: 0}
     - target: {fileID: 3168256146683966532, guid: 485954d4b17d3a84c998f0542b608726,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000028124791
+      value: 0.000000019563553
       objectReference: {fileID: 0}
     - target: {fileID: 3168256146683966532, guid: 485954d4b17d3a84c998f0542b608726,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000021733302
+      value: -0.0000000015215402
       objectReference: {fileID: 0}
     - target: {fileID: 3168256146683966532, guid: 485954d4b17d3a84c998f0542b608726,
         type: 3}
